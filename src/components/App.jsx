@@ -1,15 +1,24 @@
 import react, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 
 import RegisterForm from './Register/RegisterForm';
+import Product from './Product/Product';
+import ShoppingCart from './Shoppingcart/Shoppingcart';
 
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
+            user: [],
+            product: [],
+            productId: [],
+            productName: [],
+            productPrice:[],
+            productCategory: [],
+            productQuantity: [], 
         }
     }
 
@@ -44,7 +53,13 @@ class App extends Component {
         const user = this.state.user;
         return(
             <div>
-                <Route path='/register' component={RegisterForm} />
+                <Router>
+                    <Switch>
+                        <Route path='/register' component={RegisterForm} />
+                        <Route path='/product' component={Product} />
+                        <Route path= '/shoppingcart' component={ShoppingCart} />
+                    </Switch>
+                </Router>
             </div>
 
         )
