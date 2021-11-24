@@ -1,7 +1,8 @@
 import react, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
+import Search from './Search/Search';
 
 import RegisterForm from './Register/RegisterForm';
 
@@ -10,6 +11,9 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            product: [],
+            productId: [],
+            productName: [],
         }
     }
 
@@ -40,11 +44,27 @@ class App extends Component {
         }
     } 
 
+    // getProduct = async (searchTerm) =>{
+    //     let response =await axios.get('')
+    //     this.setState({
+    //         product: response.data.items,
+    //         productId: response.data.items[0].id.productId,
+    //         productName: response.data.items[0].snippet.productName
+
+
+    //     })
+    // }
+
     render(){
         const user = this.state.user;
         return(
             <div>
-                <Route path='/register' component={RegisterForm} />
+                <Router>
+                    <Routes>
+                        <Route path='/register' component={RegisterForm} />
+                    </Routes>
+                    <Search getProduct={this.getProduct} />
+                </Router>
             </div>
 
         )

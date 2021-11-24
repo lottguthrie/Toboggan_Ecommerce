@@ -12,7 +12,7 @@ class Search extends Component {
     };
     handleSubmit = event => {
         event.preventDefault();
-        this.props.getToboggan(this.state.searchTerm);
+        this.props.getProduct(this.state.searchTerm);
     }
 
 render() {
