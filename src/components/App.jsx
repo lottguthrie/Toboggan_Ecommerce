@@ -1,6 +1,6 @@
 import react, { Component } from 'react';
 
-class Appextends extends component {
+class Appextends extends Component {
     constructor(props){
         super(props);
         this.state = {}
@@ -12,3 +12,5 @@ class Appextends extends component {
         )
     }
 }
+
+export default Appextends
