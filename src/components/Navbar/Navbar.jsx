@@ -7,20 +7,20 @@ function NavBar() {
         <nav>
             <ul>
                 {/* <RouterLink>
-                    <hi>Home</hi> */}
-                {/* </RouterLink>
-                <RouterLink >
+                    <hi>Home</hi> }
+                {</RouterLink> */}
+                <RouterLink to="/login">
                     <li>Login</li>
                 </RouterLink>
-                <RouterLink >
-                    <li>Logout</li> */}
-                {/* </RouterLink>  */}
+                <RouterLink to="/logout"> 
+                    <li>Logout</li>
+                </RouterLink> 
                 <RouterLink to="/register">
                     <li>Register</li>
                 </RouterLink>
-                {/* <RouterLink >
+                <RouterLink to="/shoppingcart">
                     <li>Shopping Cart</li>
-                </RouterLink>  */}
+                </RouterLink> 
             </ul>
         </nav>
     )
