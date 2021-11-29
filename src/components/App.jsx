@@ -5,6 +5,7 @@ import axios from 'axios';
 import Search from './Search/Search';
 import NavBar from './Navbar/Navbar';
 import Login from './Login/Login';
+import Logout from './Logout/Logout';
 
 import RegisterForm from './Register/RegisterForm';
 
@@ -67,9 +68,9 @@ class App extends Component {
                     <Routes>
                         <Route path='/register' element={<RegisterForm />} /> 
                         <Route path='/login' element={<Login />} />
-                            {/* <Route path='/logout' element={<Logout/>} />
-                            <Route path='/shoppingcart' element={<ShoppingCart/>} />
-                            <Route add='/add' element={<Add/>} />  */}
+                        <Route path='/logout' element={<Logout />} />
+                            {/* <Route path='/shoppingcart' element={<ShoppingCart/>} />
+                            <Route add='/add' element={<Add/>} /> } */}
                     </Routes>
                 </Router>
                     {/* <Search getProduct={this.getProduct} /> */}
