@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-d
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 import Search from './Search/Search';
+import NavBar from './Navbar/Navbar';
 
 import RegisterForm from './Register/RegisterForm';
 
@@ -59,12 +60,19 @@ class App extends Component {
         const user = this.state.user;
         return(
             <div>
+               <div>
                 <Router>
+                    <NavBar user={user} />
                     <Routes>
-                        <Route path='/register' component={RegisterForm} />
+                     <Route path='/register' element={<RegisterForm />} /> */}
+                       {/* <Route path='/login' element={<Login/>} />
+                        <Route path='/logout' element={<Logout/>} />
+                        <Route path='/shoppingcart' element={<ShoppingCart/>} />
+                        <Route add='/add' element={<Add/>} /> */} */}
                     </Routes>
-                    <Search getProduct={this.getProduct} />
                 </Router>
+                    {/* <Search getProduct={this.getProduct} /> */}
+                </div>
             </div>
 
         )
