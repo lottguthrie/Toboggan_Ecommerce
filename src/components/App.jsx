@@ -8,6 +8,7 @@ import Login from './Login/Login';
 import Logout from './Logout/Logout';
 
 import RegisterForm from './Register/RegisterForm';
+import Shoppingcart from './Shoppingcart/Shoppingcart';
 
 
 class App extends Component {
@@ -71,6 +72,7 @@ class App extends Component {
                         <Route path='/logout' element={<Logout />} />
                             {/* <Route path='/shoppingcart' element={<ShoppingCart/>} />
                             <Route add='/add' element={<Add/>} /> } */}
+                        <Route path='/shoppingcart' element={<Shoppingcart />} /> 
                     </Routes>
                 </Router>
                     {/* <Search getProduct={this.getProduct} /> */}
