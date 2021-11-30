@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import Product from "./Product/Product";
-=======
->>>>>>> a9226f956d898f41b24b4ac82761ff44939a94d5
 import React, { Component } from 'react';
 
 const ShoppingCart = ({ items, total, removeFromCart }) => {

@@ -8,12 +8,7 @@ import Login from './Login/Login';
 import Logout from './Logout/Logout';
 
 import RegisterForm from './Register/RegisterForm';
-<<<<<<< HEAD
-import Product from './Product/Product';
-import ShoppingCart from './Shoppingcart/Shoppingcart';
-=======
 import Shoppingcart from './Shoppingcart/Shoppingcart';
->>>>>>> a9226f956d898f41b24b4ac82761ff44939a94d5
 
 
 class App extends Component {
@@ -76,18 +71,12 @@ class App extends Component {
                 <Router>
                     <NavBar user={user} />
                     <Routes>
-<<<<<<< HEAD
-                        <Route path='/register' component={RegisterForm} />
-                        <Route path='/product' component={Product} />
-                        <Route path= '/shoppingcart' component={ShoppingCart} />
-=======
                         <Route path='/register' element={<RegisterForm />} /> 
                         <Route path='/login' element={<Login />} />
                         <Route path='/logout' element={<Logout />} />
                             {/* <Route path='/shoppingcart' element={<ShoppingCart/>} />
                             <Route add='/add' element={<Add/>} /> } */}
                         <Route path='/shoppingcart' element={<Shoppingcart />} /> 
->>>>>>> a9226f956d898f41b24b4ac82761ff44939a94d5
                     </Routes>
                 </Router>
                     {/* <Search getProduct={this.getProduct} /> */}
