@@ -2,6 +2,10 @@ import React from 'react';
 import './DisplayProducts.css';
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 23a5d67034228311612f77128aa0d1ea9c50757e
 const DisplayProducts = (props) => {
 
     const { products } = props;
