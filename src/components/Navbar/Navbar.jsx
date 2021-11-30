@@ -22,13 +22,19 @@ function NavBar() {
                     <li>Register</li>
                 </RouterLink>
                 <RouterLink to="/shoppingcart">
-                    <li>Shopping Cart</li>
-                </RouterLink> 
+                    <li>View Shopping Cart</li>
+                </RouterLink>
                 <RouterLink to="/displayproducts">
-                    <li>view products</li>
-                </RouterLink> 
+                    <li>View Products</li>
+                </RouterLink>
+                <RouterLink to="/rating">
+                    <li>Rate</li>
+                </RouterLink>
                 <RouterLink to="/search">
-                    <li>search inventory</li>
+                    <li>Search Inventory</li>
+                </RouterLink> 
+                <RouterLink to="/reviews">
+                    <li>Product Review</li>
                 </RouterLink> 
             </ul>
         </nav>
