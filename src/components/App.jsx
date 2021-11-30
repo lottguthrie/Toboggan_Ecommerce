@@ -10,6 +10,8 @@ import ProductReview from './Reviews/Reviews';
 import RegisterForm from './Register/RegisterForm';
 import Shoppingcart from './Shoppingcart/Shoppingcart';
 import DisplayProducts from './DisplayProducts/DisplayProducts';
+import Rating from './Rating/Rating';
+import RatingsList from './RatingsList/RatingsList';
 
 
 class App extends Component {
@@ -19,7 +21,10 @@ class App extends Component {
             loggedInUser: null,
             products: [],
             shoppingCart: [],
-            displayProducts: []
+            displayProducts: [],
+            productreview: [],
+            rating: [],
+            search: [],
         };
     }
 
@@ -85,7 +90,10 @@ class App extends Component {
                         <Route path='/login' element={<Login />} />
                         <Route path='/logout' element={<Logout />} />
                         <Route path='/shoppingcart' element={<Shoppingcart/>} />
-                        <Route path='/displayproducts' element={<DisplayProducts products={this.state.products}/>} />  
+                        <Route path='/displayproducts' element={<DisplayProducts products={this.state.products}/>} /> 
+                        <Route path='/productreviews' element={<ProductReview products={this.state.products}/>} />
+                        <Route path='/rating' element={<Rating products={this.state.products}/>} />
+                        <Route path='/ratingslist' element={<RatingsList products={this.state.products}/>} />
                         <Route getProduct= '/search' element={<Search product={this.getProduct} />} />
                     </Routes>
                       
