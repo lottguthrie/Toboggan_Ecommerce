@@ -1,13 +1,14 @@
 import React from 'react';
 import './DisplayProducts.css';
 
+
 const DisplayProducts = (props) => {
 
     const { products } = props;
 
         return (
             <div>
-            <table className="table-container">
+            <table className="Product Display">
                 <thead>
                     <tr>
                         <th> Name </th>
@@ -17,7 +18,7 @@ const DisplayProducts = (props) => {
                         <th> Review </th>
                     </tr>
                 </thead>
-                {console.log("Display produtcst props: ", products)}
+            
                 {products.map((product, index) => {   
                     return (
                         <tbody>

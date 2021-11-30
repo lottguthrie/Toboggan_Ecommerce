@@ -5,6 +5,7 @@ function NavBar() {
 
     const logout = () => {
         localStorage.removeItem('token');
+        alert("Logging you out")
         window.location.href = "/login";
     }
 
@@ -14,9 +15,9 @@ function NavBar() {
                 <RouterLink to="/login">
                     <li>Login</li>
                 </RouterLink>
-                <RouterLink to="/logout">
-                    <li>Logout</li>
-                </RouterLink>
+                    <li>
+                        <a href="/" onClick={logout}>Logout</a>
+                    </li>
                 <RouterLink to="/register">
                     <li>Register</li>
                 </RouterLink>
