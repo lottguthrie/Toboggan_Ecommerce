@@ -32,7 +32,7 @@ class RegisterForm extends Component {
             window.location = '/login';
         }
         catch(ex){
-            console.log("bad call")
+            console.log("bad call", ex)
         }
     }
 

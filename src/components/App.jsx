@@ -6,7 +6,6 @@ import Search from './Search/Search';
 import NavBar from './Navbar/Navbar';
 import Login from './Login/Login';
 import Logout from './Logout/Logout';
-
 import RegisterForm from './Register/RegisterForm';
 import Shoppingcart from './Shoppingcart/Shoppingcart';
 
