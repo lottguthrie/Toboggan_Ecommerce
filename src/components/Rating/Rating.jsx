@@ -1,38 +1,25 @@
-import React, { useState } from "react";
-import { FaStar } from "react-icons/fa";
-import { Container, Radio, Rating } from "./RatingStyles";
+import React, { useEffect, useState } from 'react';
 
 
-const Rate = () => {
-  const [rate, setRate] = useState(0);
-  return (
-    <Container>
-      {[...Array(5)].map((item, index) => {
-        const givenRating = index + 1;
-        return (
-          <label>
-            <Radio
-              type="radio"
-              value={givenRating}
-              onClick={() => {
-                setRate(givenRating);
-                alert(`Are you sure you want to give ${givenRating} stars ?`);
-              }}
-            />
-            <Rating>
-              <FaStar
-                color={
-                  givenRating < rate || givenRating === rate
-                    ? "000"
-                    : "rgb(192,192,192)"
-                }
-              />
-            </Rating>
-          </label>
-        );
-      })}
-    </Container>
-  );
-};
-  
-export default Rating;
+const Rating = () => {
+    const [rating, setRating] = useState(0);
+    return (
+      <div className="star-rating">
+        {[...Array(5)].map((star, index) => {
+          index += 1;
+          return (
+            <button
+              type="button"
+              key={index}
+              className={index <= rating ? "on" : "off"}
+              onClick={() => setRating(index)}
+            >
+              <span className="star">&#9733;</span>
+            </button>
+          );
+        })}
+      </div>
+    );
+  };
+
+  export default Rating;
