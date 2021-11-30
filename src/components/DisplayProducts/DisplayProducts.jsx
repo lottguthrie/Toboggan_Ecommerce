@@ -1,6 +1,5 @@
 import React from 'react';
 import './DisplayProducts.css';
-import { Link as RouterLink } from "react-router-dom";
 
 const DisplayProducts = (props) => {
 
@@ -16,14 +15,15 @@ const DisplayProducts = (props) => {
                         <th> Review </th>
                     </tr>
                 </thead>
+            
                 {props.products.map((product) => {   
                     return (
                         <tbody>
                             <tr>                        
-                                <td>{product.name}</td>
-                                <td>{product.description}</td>
-                                <td>{product.review}</td>
-                                <td>$ {product.price}.00</td>
+                                <td>{product.productName}</td>
+                                <td>{product.productPrice}.00</td>
+                                <td>{product.category}</td>
+                                <td>$ {product.productDescription}</td>
                                 <td>{product.category}</td>
                                 <td><button class="btn btn-outline-light btn-lg" type="submit">Add to Cart</button></td>
                             </tr>              
