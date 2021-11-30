@@ -15,9 +15,22 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            product: [],
-            productId: [],
-            productName: [],
+            loggedInUser: null,
+            products: [],
+            shoppingCart: []
+        };
+    }
+
+    registerNewUser = async (user) => {
+        console.log("User object from Register: ", user)
+        try{
+            const response = await axios.post('https://localhost:44394/api/authentication', user);
+            console.log(response)
+            this.loggedInUser = ({'userName': user.userName, 'password': user.password})
+
+        }
+        catch(error) {
+            console.log(error, 'Invalid input');
         }
     }
 
@@ -64,7 +77,6 @@ class App extends Component {
         return(
             <div>
                <div>
-                <Router>
                     <NavBar user={user} />
                     <Routes>
                         <Route path='/register' element={<RegisterForm />} /> 
@@ -74,7 +86,6 @@ class App extends Component {
                             <Route add='/add' element={<Add/>} /> } */}
                         <Route path='/shoppingcart' element={<Shoppingcart />} /> 
                     </Routes>
-                </Router>
                     {/* <Search getProduct={this.getProduct} /> */}
                 </div>
             </div>
