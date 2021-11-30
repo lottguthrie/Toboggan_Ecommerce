@@ -7,11 +7,12 @@ function Logout() {
    const logout = () => {
             localStorage.removeItem('token');
             window.location.href = "/Navbar/Navbar";
-}
+
     return(
     
             <button onClick={this.logout}>Logout</button>
     )
-};
+    }
 
+}
 export default Logout;
