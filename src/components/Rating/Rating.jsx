@@ -1,67 +1,38 @@
-import React, { Component } from 'react';
-import './Rating.css';
-import axios from 'axios';
+import React, { useState } from "react";
+import { FaStar } from "react-icons/fa";
+import { Container, Radio, Rating } from "./RatingStyles";
 
-class Rating extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentRating: this.props.currentRating
-    };
-  }
 
-  componentDidMount() {
-    this.setRating();
-  }
-
-  hoverHandler = ev => {
-    const stars = ev.target.parentElement.getElementsByClassName('star');
-    const hoverValue = ev.target.dataset.value;
-    Array.from(stars).forEach(star => {
-      star.style.color = hoverValue >= star.dataset.value ? 'yellow' : 'gray';
-    });
-  };
-
-  setRating = ev => {
-    const stars = this.props.rating.getElementsByClassName('star');
-    Array.from(stars).forEach(star => {
-      star.style.color =
-        this.state.currentRating >= star.dataset.value ? 'yellow' : 'gray';
-    });
-  };
-
-  starClickHandler = ev => {
-    let rating = ev.target.dataset.value;
-    this.setState({ currentRating: rating });
-    if(this.props.onClick){
-      this.props.onClick(rating);
-    }
-  };
-
-  render() {
-    return (
-      <div
-        className="rating"
-        ref="rating"
-        data-rating={this.state.currentRating}
-        
-      >
-        {[...Array(+this.props.numberOfStars).keys()].map(n => {
-          return (
-            <span
-              className="star"
-              key={n+1}
-              data-value={n+1}
-
-              onClick={this.starClickHandler}
-            >
-              &#9733;
-            </span>
-          );
-        })}
-      </div>
-    );
-  }
-}
-
+const Rate = () => {
+  const [rate, setRate] = useState(0);
+  return (
+    <Container>
+      {[...Array(5)].map((item, index) => {
+        const givenRating = index + 1;
+        return (
+          <label>
+            <Radio
+              type="radio"
+              value={givenRating}
+              onClick={() => {
+                setRate(givenRating);
+                alert(`Are you sure you want to give ${givenRating} stars ?`);
+              }}
+            />
+            <Rating>
+              <FaStar
+                color={
+                  givenRating < rate || givenRating === rate
+                    ? "000"
+                    : "rgb(192,192,192)"
+                }
+              />
+            </Rating>
+          </label>
+        );
+      })}
+    </Container>
+  );
+};
+  
 export default Rating;

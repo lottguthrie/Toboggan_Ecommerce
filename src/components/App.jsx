@@ -11,7 +11,7 @@ import RegisterForm from './Register/RegisterForm';
 import Shoppingcart from './Shoppingcart/Shoppingcart';
 import DisplayProducts from './DisplayProducts/DisplayProducts';
 import Rating from './Rating/Rating';
-import RatingsList from './RatingsList/RatingsList';
+
 
 
 class App extends Component {
@@ -95,7 +95,6 @@ class App extends Component {
                         <Route path='/displayproducts' element={<DisplayProducts products={this.state.products}/>} /> 
                         <Route path='/productreviews' element={<ProductReview products={this.state.products}/>} />
                         <Route path='/rating' element={<Rating products={this.state.products}/>} />
-                        <Route path='/ratingslist' element={<RatingsList products={this.state.products}/>} />
                         <Route getProduct= '/search' element={<Search product={this.getProduct} />} />
                     </Routes>
                       

@@ -29,9 +29,6 @@ function NavBar() {
                 <RouterLink to="/rating">
                     <li>Rate</li>
                 </RouterLink>
-                <RouterLink to="/ratingslist">
-                    <li>My Ratings</li>
-                </RouterLink>
                 <RouterLink to="/search">
                     <li>search inventory</li>
                 </RouterLink> 
