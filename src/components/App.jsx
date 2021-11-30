@@ -67,7 +67,8 @@ class App extends Component {
      getProduct = async () =>{
          console.log("Inside getProduct function")
          try{
-            let response =await axios.get('https://localhost:44394/api/Product/')
+            let response =await axios.get('http://localhost:44394/api/Product', {headers:{Authorization: "Bearer " + localStorage.getItem('token')}})
+            console.log(response.data)
             this.setState({
                 products:response.data
             });
@@ -75,12 +76,12 @@ class App extends Component {
              console.log("Get Products API error: ", err)
          }
          
-         let response = await axios.get('')
-         this.setState({
-             product: response.data.items,
-             productId: response.data.items[0].id.productId,
-             productName: response.data.items[0].snippet.productName
-        })
+        //  let response = await axios.get('https://localhost:44394/api/shoppingcart/')
+        //  this.setState({
+        //      product: response.data.items,
+        //      productId: response.data.items[0].id.productId,
+        //      productName: response.data.items[0].snippet.productName
+        // })
      }
 
     render(){
@@ -93,7 +94,7 @@ class App extends Component {
                         <Route path='/register' element={<RegisterForm />} /> 
                         <Route path='/login' element={<Login />} />
                         <Route path='/logout' element={<Logout />} />
-                        <Route path='/shoppingcart' element={<Shoppingcart/>} />
+                        <Route path='/shoppingcart' element={<Shoppingcart />} />
                         <Route path='/displayproducts' element={<DisplayProducts products={this.state.products}/>} />  
                         <Route getProduct= '/search' element={<Search product={this.getProduct} />} />
                     </Routes>

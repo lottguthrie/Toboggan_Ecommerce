@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
 
-export default Shoppingcart = (props) => {
+const Shoppingcart = (props) => {
 
   const { total, removeFromShoppingcart } = props
   const [shopCartData, setShopCartData] = useState([])
@@ -37,7 +37,7 @@ export default Shoppingcart = (props) => {
           <thead>
             <th>Qty</th>
             <th>Actions</th>
-          </thead
+          </thead>
           <tbody>
             {shopCartData.length > 0 && (
               <div className="shoppingcart__body">
@@ -66,4 +66,4 @@ export default Shoppingcart = (props) => {
   )
 }
 
-
+export default Shoppingcart;
