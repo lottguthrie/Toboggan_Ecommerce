@@ -1,11 +1,13 @@
 import React from 'react';
 import './DisplayProducts.css';
 
+
+
 const DisplayProducts = (props) => {
 
         return (
             <div>
-            <Table className="Product Display">
+            <table className="Product Display">
                 <thead>
                     <tr>
                         <th> Name </th>
@@ -30,7 +32,7 @@ const DisplayProducts = (props) => {
                         </tbody>
                     )
                 })}
-            </Table>
+            </table>
         </div>
     );
 };
