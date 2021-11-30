@@ -8,7 +8,11 @@ const DisplayProducts = (props) => {
 
         return (
             <div>
+<<<<<<< HEAD
             <table className="Product Display">
+=======
+            <table className="table-container">
+>>>>>>> 08d66badc14d2c79627f0e50d465c3be48b1a626
                 <thead>
                     <tr>
                         <th> Name </th>
@@ -18,7 +22,11 @@ const DisplayProducts = (props) => {
                         <th> Review </th>
                     </tr>
                 </thead>
+<<<<<<< HEAD
             
+=======
+                {console.log("Display produtcst props: ", products)}
+>>>>>>> 08d66badc14d2c79627f0e50d465c3be48b1a626
                 {products.map((product, index) => {   
                     return (
                         <tbody>

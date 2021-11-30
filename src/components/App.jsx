@@ -43,9 +43,10 @@ class App extends Component {
             this.setState({
                 user
             });
-        } catch {
-
+        } catch (err) {
+           console.log(err) 
         }
+        this.getProduct()
     }
     
     async makeLoginRequest(logInfo){
@@ -63,7 +64,17 @@ class App extends Component {
         }
     } 
 
-     getProduct = async (searchTerm) =>{
+     getProduct = async () =>{
+         console.log("Inside getProduct function")
+         try{
+            let response =await axios.get('https://localhost:44394/api/Product/')
+            this.setState({
+                products:response.data
+            });
+         } catch (err) {
+             console.log("Get Products API error: ", err)
+         }
+         
          let response = await axios.get('')
          this.setState({
              product: response.data.items,
