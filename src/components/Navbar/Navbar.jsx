@@ -21,6 +21,9 @@ function NavBar() {
                 <RouterLink to="/shoppingcart">
                     <li>Shopping Cart</li>
                 </RouterLink> 
+                <RouterLink to="/displayproducts">
+                    <li>view products</li>
+                </RouterLink> 
             </ul>
         </nav>
     )

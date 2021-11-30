@@ -19,7 +19,7 @@ class App extends Component {
             loggedInUser: null,
             products: [],
             shoppingCart: [],
-            displayProducts: []
+            jwt: "",
         };
     }
 
@@ -37,6 +37,7 @@ class App extends Component {
     }
 
     componentDidMount() {
+        this.getAllProducts()
         const jwt = localStorage.getItem('token');
         try{
             const user = jwt_decode(jwt);
@@ -63,29 +64,28 @@ class App extends Component {
         }
     } 
 
-    // getProduct = async (searchTerm) =>{
-    //     let response =await axios.get('')
-    //     this.setState({
-    //         product: response.data.items,
-    //         productId: response.data.items[0].id.productId,
-    //         productName: response.data.items[0].snippet.productName
-
-
-    //     })
-    // }
+    getAllProducts = async () =>{
+        let response =await axios.get('https://localhost:44394/api/Product')
+        console.log(response.data)
+        this.setState({
+            products: response.data
+        });
+    }
 
     render(){
         const user = this.state.user;
         return(
             <div>
                <div>
-                    <NavBar user={user} />
+                   
+                    <NavBar logout={this.logoutUser} />
+                    
                     <Routes>
                         <Route path='/register' element={<RegisterForm />} /> 
                         <Route path='/login' element={<Login />} />
                         <Route path='/logout' element={<Logout />} />
                         <Route path='/shoppingcart' element={<Shoppingcart/>} />
-                        <Route path='/displayproducts' element={<DisplayProducts/>} />  
+                        <Route path='/displayproducts' element={<DisplayProducts  products={this.state.products}/>} />  
                         
                     </Routes>
                     {/* <Search getProduct={this.getProduct} /> */}
