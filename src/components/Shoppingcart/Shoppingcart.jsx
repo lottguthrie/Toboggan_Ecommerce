@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const Shoppingcart = (props) => {
   
-   const { total, removeFromCShoppingcart} = props
+   const { total, removeFromShoppingcart} = props
    const [ shopCartData, setShopCartData ] = useState([])
 
 
@@ -22,6 +22,10 @@ const Shoppingcart = (props) => {
    useEffect(() => {
     getProdsByUser()
    }, [])
+
+   const handleClick = (shopCartData) =>{
+     alert ("delete products : ", shopCartData) 
+   }
    
 
   return (
@@ -30,9 +34,10 @@ const Shoppingcart = (props) => {
           <div className="Shopping Cart">
                         {shopCartData.length > 0 && (
                             <div className="shoppingcart__body">
-                                {shopCartData}.map(item = (
-                                    <shopCartData key={shopCartData.id} {...shopCartData} onClick={() => removeFromCShoppingcart(shopCartData.id)} />
-                                    ))
+                                {shopCartData}.map(item => (
+                                    <shopCartData key={shopCartData.id} {...shopCartData} onClick={() => removeFromShoppingcart(shopCartData.id)} />
+                                    <button type='button' onClick={() => handleClick(shopCartData)}>Delete</button>
+                                    ))}
                                 </div>
                             )}
                             {shopCartData.length === 0 && (
@@ -41,6 +46,8 @@ const Shoppingcart = (props) => {
                             <div className="shoppingcart__total">Total: {total} </div>
                         </div>
                         </div>
+        
+
                         
                     
              

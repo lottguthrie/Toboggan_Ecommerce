@@ -27,8 +27,7 @@ class RegisterForm extends Component {
         }
         console.log(userInfo)
         try{
-            let response = await axios.post('https://localhost:44394/api/authentication', userInfo)
-            console.log(response.data);
+            let response = await axios.post('https://localhost:44394/api/authentication/', userInfo)
             window.location = '/login';
         }
         catch(ex){

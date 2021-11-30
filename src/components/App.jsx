@@ -48,9 +48,10 @@ class App extends Component {
             this.setState({
                 user
             });
-        } catch {
-
+        } catch (err) {
+           console.log(err) 
         }
+        this.getProduct()
     }
     
     async makeLoginRequest(logInfo){
@@ -68,15 +69,16 @@ class App extends Component {
         }
     } 
 
-     getProduct = async (searchTerm) =>{
-         let response =await axios.get('')
-         this.setState({
-             product: response.data.items,
-             productId: response.data.items[0].id.productId,
-             productName: response.data.items[0].snippet.productName
-
-
-        })
+     getProduct = async () =>{
+         console.log("Inside getProduct function")
+         try {
+             let response =await axios.get('https://localhost:44394/api/Product/')
+             this.setState({
+                 products: response.data
+            });
+         } catch (err) {
+             console.log("Get Products API error: ", err)
+         }
      }
 
     render(){

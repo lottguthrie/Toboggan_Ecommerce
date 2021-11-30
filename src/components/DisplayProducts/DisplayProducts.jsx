@@ -3,9 +3,11 @@ import './DisplayProducts.css';
 
 const DisplayProducts = (props) => {
 
+    const { products } = props;
+
         return (
             <div>
-            <table className="Product Display">
+            <table className="table-container">
                 <thead>
                     <tr>
                         <th> Name </th>
@@ -15,11 +17,11 @@ const DisplayProducts = (props) => {
                         <th> Review </th>
                     </tr>
                 </thead>
-            
-                {props.products.map((product) => {   
+                {console.log("Display produtcst props: ", products)}
+                {products.map((product, index) => {   
                     return (
                         <tbody>
-                            <tr>                        
+                            <tr key={index}>                        
                                 <td>{product.productName}</td>
                                 <td>{product.productPrice}.00</td>
                                 <td>{product.category}</td>
