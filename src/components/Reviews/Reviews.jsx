@@ -20,7 +20,7 @@ class ProductReview extends Component {
         }
         console.log(productReview)
         try{
-            let response = await axios.post('https://localhost:44394/api/review', productReview)
+            let response = await axios.post('https://localhost:44394/api/reviews', productReview)
             console.log(response.data);
             window.location = '/product';
         }
@@ -49,10 +49,7 @@ class ProductReview extends Component {
                 <h3>Please leave a product review</h3>
                 <form onSubmit={(event) => this.handleSubmit(event)}>
                     <input class="m-2" name="review" type="text" placeholder="Product Review" value={ProductReview} onChange={this.handleChange} />
-                    
                     <br />
-
-
                     <input id="productReviewButton" name="submit" type="Submit" value="Submit Review" className="btn btn-secondary m-2" />
                 </form> 
             </div>

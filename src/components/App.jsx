@@ -19,7 +19,7 @@ class App extends Component {
             loggedInUser: null,
             products: [],
             shoppingCart: [],
-            jwt: "",
+            displayProducts: []
         };
     }
 
@@ -37,7 +37,6 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.getAllProducts()
         const jwt = localStorage.getItem('token');
         try{
             const user = jwt_decode(jwt);
@@ -64,31 +63,32 @@ class App extends Component {
         }
     } 
 
-    getAllProducts = async () =>{
-        let response =await axios.get('https://localhost:44394/api/Product')
-        console.log(response.data)
-        this.setState({
-            products: response.data
-        });
-    }
+     getProduct = async (searchTerm) =>{
+         let response =await axios.get('')
+         this.setState({
+             product: response.data.items,
+             productId: response.data.items[0].id.productId,
+             productName: response.data.items[0].snippet.productName
+
+
+        })
+     }
 
     render(){
         const user = this.state.user;
         return(
             <div>
                <div>
-                   
-                    <NavBar logout={this.logoutUser} />
-                    
+                    <NavBar user={user} />
                     <Routes>
                         <Route path='/register' element={<RegisterForm />} /> 
                         <Route path='/login' element={<Login />} />
                         <Route path='/logout' element={<Logout />} />
                         <Route path='/shoppingcart' element={<Shoppingcart/>} />
-                        <Route path='/displayproducts' element={<DisplayProducts  products={this.state.products}/>} />  
-                        
+                        <Route path='/displayproducts' element={<DisplayProducts products={this.state.products}/>} />  
+                        <Route getProduct= '/search' element={<Search product={this.getProduct} />} />
                     </Routes>
-                    {/* <Search getProduct={this.getProduct} /> */}
+                      
                 </div>
             </div>
 
