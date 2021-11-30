@@ -1,7 +1,30 @@
-//login
-//log out
-//register
-//shopping cart
+import React, { Component } from "react";
+import { Link as RouterLink } from "react-router-dom";
 
-import { useState } from "react";
-import ReactDOM from "react-dom";
+function NavBar() {
+
+    return (
+        <nav>
+            <ul>
+                {/* <RouterLink>
+                    <hi>Home</hi> }
+                {</RouterLink> */}
+                <RouterLink to="/login">
+                    <li>Login</li>
+                </RouterLink>
+                <RouterLink to="/logout"> 
+                    <li>Logout</li>
+                </RouterLink> 
+                <RouterLink to="/register">
+                    <li>Register</li>
+                </RouterLink>
+                <RouterLink to="/shoppingcart">
+                    <li>Shopping Cart</li>
+                </RouterLink> 
+            </ul>
+        </nav>
+    )
+}
+
+export default NavBar;
+

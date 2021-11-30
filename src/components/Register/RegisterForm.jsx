@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, {Component, Route, Link } from 'react';
+import React, {Component } from 'react';
 
 import './RegisterForm.css';
 
