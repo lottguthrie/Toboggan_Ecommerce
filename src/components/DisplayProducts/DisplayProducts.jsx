@@ -5,7 +5,7 @@ const DisplayProducts = (props) => {
 
         return (
             <div>
-            <table className="table-container">
+            <Table className="Product Display">
                 <thead>
                     <tr>
                         <th> Name </th>
@@ -30,7 +30,7 @@ const DisplayProducts = (props) => {
                         </tbody>
                     )
                 })}
-            </table>
+            </Table>
         </div>
     );
 };

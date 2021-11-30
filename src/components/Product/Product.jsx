@@ -52,9 +52,11 @@ class Product extends React.Component {
               <button className="btn btn-outline-primary" onClick={this.showDescription}>
                 show description
               </button>
+              <div>
               <button className="btn btn-outline-primary" onClick={this.showProductReview}>
                 show product review
               </button>
+              </div>
             </div>
             <div className="col-6 text-right">
               <button className="btn btn-outline-primary" onClick={this.add}>
