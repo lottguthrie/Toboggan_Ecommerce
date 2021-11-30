@@ -85,7 +85,7 @@ class App extends Component {
                         <Route path='/login' element={<Login />} />
                         <Route path='/logout' element={<Logout />} />
                         <Route path='/shoppingcart' element={<Shoppingcart/>} />
-                        <Route path='/displayproducts' element={<DisplayProducts/>} />  
+                        <Route path='/displayproducts' element={<DisplayProducts products={this.state.products}/>} />  
                         
                     </Routes>
                     {/* <Search getProduct={this.getProduct} /> */}

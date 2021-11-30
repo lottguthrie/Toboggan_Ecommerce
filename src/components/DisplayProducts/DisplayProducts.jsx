@@ -1,12 +1,13 @@
 import React from 'react';
 import './DisplayProducts.css';
 import { Link as RouterLink } from "react-router-dom";
+import Table from 'react-bootstrap/Table';
 
 const DisplayProducts = (props) => {
 
         return (
             <div>
-            <table className="table-container">
+            <Table className="Product Display">
                 <thead>
                     <tr>
                         <th> Name </th>
@@ -30,7 +31,7 @@ const DisplayProducts = (props) => {
                         </tbody>
                     )
                 })}
-            </table>
+            </Table>
         </div>
     );
 };
