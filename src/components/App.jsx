@@ -6,8 +6,10 @@ import Search from './Search/Search';
 import NavBar from './Navbar/Navbar';
 import Login from './Login/Login';
 import Logout from './Logout/Logout';
+import ProductReview from './Reviews/Reviews';
 import RegisterForm from './Register/RegisterForm';
 import Shoppingcart from './Shoppingcart/Shoppingcart';
+import DisplayProducts from './DisplayProducts/DisplayProducts';
 
 
 class App extends Component {
@@ -16,7 +18,8 @@ class App extends Component {
         this.state = { 
             loggedInUser: null,
             products: [],
-            shoppingCart: []
+            shoppingCart: [],
+            displayProducts: []
         };
     }
 
@@ -81,9 +84,9 @@ class App extends Component {
                         <Route path='/register' element={<RegisterForm />} /> 
                         <Route path='/login' element={<Login />} />
                         <Route path='/logout' element={<Logout />} />
-                            {/* <Route path='/shoppingcart' element={<ShoppingCart/>} />
-                            <Route add='/add' element={<Add/>} /> } */}
-                        <Route path='/shoppingcart' element={<Shoppingcart />} /> 
+                        <Route path='/shoppingcart' element={<Shoppingcart/>} />
+                        <Route path='/displayproducts' element={<DisplayProducts/>} />  
+                        
                     </Routes>
                     {/* <Search getProduct={this.getProduct} /> */}
                 </div>
