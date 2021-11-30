@@ -18,8 +18,9 @@ class Login extends Component {
         const login = {
             username: this.state.username,
             password: this.state.password,
+            // add token to local storage on successful login
         }
-        //this.props.login(login);
+        // this.props.login(login);
         this.setState({
             username: '',
             password: '',
