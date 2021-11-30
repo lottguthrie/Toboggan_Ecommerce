@@ -11,9 +11,6 @@ function NavBar() {
     return (
         <nav>
             <ul>
-                {/* <RouterLink>
-                    <hi>Home</hi> }
-                {</RouterLink> */}
                 <RouterLink to="/login">
                     <li>Login</li>
                 </RouterLink>
@@ -27,7 +24,10 @@ function NavBar() {
                     <li>Shopping Cart</li>
                 </RouterLink> 
                 <RouterLink to="/displayproducts">
-                    <li>Display Products</li>
+                    <li>view products</li>
+                </RouterLink> 
+                <RouterLink to="/search">
+                    <li>search inventory</li>
                 </RouterLink> 
             </ul>
         </nav>
