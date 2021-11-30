@@ -1,66 +1,69 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
-const Shoppingcart = (props) => {
-  
-   const { total, removeFromShoppingcart} = props
-   const [ shopCartData, setShopCartData ] = useState([])
+export default Shoppingcart = (props) => {
+
+  const { total, removeFromShoppingcart } = props
+  const [shopCartData, setShopCartData] = useState([])
 
 
-   const getProdsByUser = async () => {
+  const getProdsByUser = async () => {
     let jwt = localStorage.getItem("token")
-    
+
     try {
-      let response = await axios.get('https://localhost:44394/api/shoppingcart' , {hearders: {Authorization: ' Bearer' + jwt}} ) // add authorization
+      let response = await axios.get('https://localhost:44394/api/shoppingcart', { hearders: { Authorization: ' Bearer' + jwt } }) // add authorization
       setShopCartData(response.data)
-    }  catch (err) {
+    } catch (err) {
       console.log("Error in api call to shopping cart", err)
     }
 
-   }
+  }
 
-   useEffect(() => {
+  useEffect(() => {
     getProdsByUser()
-   }, [])
+  }, [])
 
-   const handleClick = (shopCartData) =>{
-     alert ("delete products : ", shopCartData) 
-   }
-   
+  const handleClick = (shopCartData) => {
+    alert("delete products : ", shopCartData)
+  }
+
 
   return (
-      <div>
-          <h3>Shopping Cart</h3>
-          <div className="Shopping Cart">
-                        {shopCartData.length > 0 && (
-                            <div className="shoppingcart__body">
-                                {shopCartData}.map(item => (
-                                    <shopCartData key={shopCartData.id} {...shopCartData} onClick={() => removeFromShoppingcart(shopCartData.id)} />
-                                    <button type='button' onClick={() => handleClick(shopCartData)}>Delete</button>
-                                    ))}
-                                </div>
-                            )}
-                            {shopCartData.length === 0 && (
-                                <div className="alert alert-info">Cart is empty</div>
-                            )}
-                            <div className="shoppingcart__total">Total: {total} </div>
-                        </div>
-                        </div>
-        
+    <Fragment>
+      <h3>Shopping Cart</h3>
+      <div className="Shopping Cart">
 
-                        
-                    
-             
-        );
-    }
-                
-            
-          
-
-
-  export default Shoppingcart;
-
-
-
+        <table>
+          <thead>
+            <th>Qty</th>
+            <th>Actions</th>
+          </thead
+          <tbody>
+            {shopCartData.length > 0 && (
+              <div className="shoppingcart__body">
+                {shopCartData.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.quantity}</td>
+                    <td>
+                      <button
+                        type='button'
+                        onClick={() => handleClick(shopCartData)}
+                      >Delete</button>
+                    </td>
+                  </tr>
+                ))
+                }
+              </div>
+            )}
+          </tbody>
+        </table>
+        {shopCartData.length === 0 && (
+          <div className="alert alert-info">Cart is empty</div>
+        )}
+        <div className="shoppingcart__total">Total: {total} </div>
+      </div>
+    </Fragment>
+  )
+}
 
 

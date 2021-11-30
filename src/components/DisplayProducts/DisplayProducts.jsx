@@ -1,11 +1,14 @@
 import React from 'react';
 import './DisplayProducts.css';
 
+
 const DisplayProducts = (props) => {
+
+    const { products } = props;
 
         return (
             <div>
-            <Table className="Product Display">
+            <table className="Product Display">
                 <thead>
                     <tr>
                         <th> Name </th>
@@ -16,10 +19,10 @@ const DisplayProducts = (props) => {
                     </tr>
                 </thead>
             
-                {props.products.map((product) => {   
+                {products.map((product, index) => {   
                     return (
                         <tbody>
-                            <tr>                        
+                            <tr key={index}>                        
                                 <td>{product.productName}</td>
                                 <td>{product.productPrice}.00</td>
                                 <td>{product.category}</td>
@@ -30,7 +33,7 @@ const DisplayProducts = (props) => {
                         </tbody>
                     )
                 })}
-            </Table>
+            </table>
         </div>
     );
 };

@@ -64,13 +64,11 @@ class App extends Component {
     } 
 
      getProduct = async (searchTerm) =>{
-         let response =await axios.get('')
+         let response = await axios.get('')
          this.setState({
              product: response.data.items,
              productId: response.data.items[0].id.productId,
              productName: response.data.items[0].snippet.productName
-
-
         })
      }
 
