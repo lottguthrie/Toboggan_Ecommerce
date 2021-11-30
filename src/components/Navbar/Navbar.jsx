@@ -3,6 +3,11 @@ import { Link as RouterLink } from "react-router-dom";
 
 function NavBar() {
 
+    const logout = () => {
+        localStorage.removeItem('token');
+        window.location.href = "/login";
+    }
+
     return (
         <nav>
             <ul>
@@ -12,9 +17,9 @@ function NavBar() {
                 <RouterLink to="/login">
                     <li>Login</li>
                 </RouterLink>
-                <RouterLink to="/logout"> 
+      
                     <li>Logout</li>
-                </RouterLink> 
+
                 <RouterLink to="/register">
                     <li>Register</li>
                 </RouterLink>
