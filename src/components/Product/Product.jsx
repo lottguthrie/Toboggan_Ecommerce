@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ProductReview from 'review';
+
 
 
 /* Product */
@@ -11,6 +13,7 @@ class Product extends React.Component {
       this.add = this.add.bind(this);
       this.subtract = this.subtract.bind(this);
       this.showDescription = this.showDescription.bind(this);
+      this.showReview = this.showProductReview.bind(this)
     }
   
     add() {
@@ -30,6 +33,10 @@ class Product extends React.Component {
     showDescription() {
       this.props.handleShow(this.props.description);
     }
+
+    showProductReview() {
+      this.props.handleReview(this.props.ProductReview);
+    }
   
     render() {
       return (
@@ -44,6 +51,9 @@ class Product extends React.Component {
             <div className="col-6">
               <button className="btn btn-outline-primary" onClick={this.showDescription}>
                 show description
+              </button>
+              <button className="btn btn-outline-primary" onClick={this.showProductReview}>
+                show product review
               </button>
             </div>
             <div className="col-6 text-right">

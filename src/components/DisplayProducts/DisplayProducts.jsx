@@ -1,34 +1,38 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import './DisplayProducts.css';
+import { Link as RouterLink } from "react-router-dom";
 
 const DisplayProducts = (props) => {
-    const productsInCart = props.productsInCart;
-
-    const cartDetails = productsInCart.map((item) => {
-        const details = {
-            productId: item.productId,
-            productName: item.product.productName,
-            productPrice: item.product.productPrice,
-            productQuantity: item.quantity,
-            userId: item.id
-        };
 
         return (
             <div>
-                <dl class="border">
-                    <dt>Product Name: {details.productName}</dt>
-                        <dd>Price: ${details.productPrice}</dd>
-                        <dd>Quantity: {details.productQuantity}</dd>
-                        <button className="btn btn-primary text-yellow" onClick={() => props.deleteProduct(details)}>DELETE</button>
-                </dl>
-            </div>
-        )
-    });
-    return(
-        <div>
-            {cartDetails}
+            <table className="table-container">
+                <thead>
+                    <tr>
+                        <th> Name </th>
+                        <th> Price </th>
+                        <th> Category </th>
+                        <th> Description </th>
+                        <th> Review </th>
+                    </tr>
+                </thead>
+                {props.products.map((product) => {   
+                    return (
+                        <tbody>
+                            <tr>                        
+                                <td>{product.name}</td>
+                                <td>{product.description}</td>
+                                <td>{product.review}</td>
+                                <td>$ {product.price}.00</td>
+                                <td>{product.category}</td>
+                                <td><button class="btn btn-outline-light btn-lg" type="submit">Add to Cart</button></td>
+                            </tr>              
+                        </tbody>
+                    )
+                })}
+            </table>
         </div>
-    )
-}
+    );
+};
+
 export default DisplayProducts;

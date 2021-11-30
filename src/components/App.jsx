@@ -6,22 +6,33 @@ import Search from './Search/Search';
 import NavBar from './Navbar/Navbar';
 import Login from './Login/Login';
 import Logout from './Logout/Logout';
-
+import ProductReview from './Reviews/Reviews';
 import RegisterForm from './Register/RegisterForm';
 import Shoppingcart from './Shoppingcart/Shoppingcart';
+import DisplayProducts from './DisplayProducts/DisplayProducts';
 
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            user: [],
-            product: [],
-            productId: [],
-            productName: [],
-            productPrice:[],
-            productCategory: [],
-            productQuantity: [], 
+        this.state = { 
+            loggedInUser: null,
+            products: [],
+            shoppingCart: [],
+            displayProducts: []
+        };
+    }
+
+    registerNewUser = async (user) => {
+        console.log("User object from Register: ", user)
+        try{
+            const response = await axios.post('https://localhost:44394/api/authentication', user);
+            console.log(response)
+            this.loggedInUser = ({'userName': user.userName, 'password': user.password})
+
+        }
+        catch(error) {
+            console.log(error, 'Invalid input');
         }
     }
 
@@ -68,17 +79,15 @@ class App extends Component {
         return(
             <div>
                <div>
-                <Router>
                     <NavBar user={user} />
                     <Routes>
                         <Route path='/register' element={<RegisterForm />} /> 
                         <Route path='/login' element={<Login />} />
                         <Route path='/logout' element={<Logout />} />
-                            {/* <Route path='/shoppingcart' element={<ShoppingCart/>} />
-                            <Route add='/add' element={<Add/>} /> } */}
-                        <Route path='/shoppingcart' element={<Shoppingcart />} /> 
+                        <Route path='/shoppingcart' element={<Shoppingcart/>} />
+                        <Route path='/displayproducts' element={<DisplayProducts/>} />  
+                        
                     </Routes>
-                </Router>
                     {/* <Search getProduct={this.getProduct} /> */}
                 </div>
             </div>

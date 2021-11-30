@@ -1,8 +1,13 @@
 import react from 'react';
-import reactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
-import axios from  'axios';
+import { BrowserRouter as Router } from 'react-router-dom';
 
+ReactDOM.render(
+    <Router>
+        <App />
+    </Router>,
 
-reactDom.render(<App />, document.getElementById('root'));
+    document.getElementById('root')
+);
