@@ -1,3 +1,4 @@
+import axios from 'axios';
 import react, { Component } from 'react';
 import { Link as RouterLink } from "react-router-dom";
 import './Login.css';
@@ -13,13 +14,18 @@ class Login extends Component {
     }
     
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
+        
         const login = {
             username: this.state.username,
             password: this.state.password,
-            // add token to local storage on successful login
         }
+            // add token to local storage on successful login
+            let response = await axios.post('https://localhost:44394/api/user', login);
+            console.log(response.data)
+            localStorage.setItem('token', response.data.token)
+        
         // this.props.login(login);
         this.setState({
             username: '',
