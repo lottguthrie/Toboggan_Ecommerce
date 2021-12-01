@@ -72,7 +72,7 @@ class App extends Component {
      getProduct = async () =>{
          console.log("Inside getProduct function")
          try{
-            let response =await axios.get('http://localhost:44394/api/Product', {headers:{Authorization: "Bearer " + localStorage.getItem('token')}})
+            let response =await axios.get('https://localhost:44394/api/Product', {headers:{Authorization: "Bearer " + localStorage.getItem('token')}})
             console.log(response.data)
             this.setState({
                 products:response.data
