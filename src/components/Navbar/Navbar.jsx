@@ -5,7 +5,7 @@ function NavBar() {
 
     const logout = () => {
         localStorage.removeItem('token');
-        alert("Logging you out")
+        //alert("Logging you out")
         window.location.href = "/login";
     }
 

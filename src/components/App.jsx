@@ -103,7 +103,8 @@ class App extends Component {
                         <Route path='/displayproducts' element={<DisplayProducts products={this.state.products}/>} /> 
                         <Route path='/reviews' element={<ProductReview products={this.state.products}/>} />
                         <Route path='/rating' element={<Rating products={this.state.products}/>} />
-                        <Route getProduct= '/search' element={<Search product={this.getProduct} />} />
+                        <Route path= '/search' element={<Search />} />
+                        //<Route getProduct= '/search' element={<Search product={this.getProduct} />} />
                     </Routes>
                       
                 </div>
